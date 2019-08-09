@@ -1,0 +1,13 @@
+  <div class="columns container forms">
+    <div class="column  field ">
+      <%= form_for(@jewel, url: add_gem_path) do |f| %>
+        <%= f.label :name, :class => 'label'  %>
+        <%= f.text_field :name, :class => 'input' %>
+
+        <%= f.label :desc, "Description", :class => 'label' %>
+        <%= f.text_field :desc, :class => 'input' %>
+
+        <%= f.submit "Add Gem", class: "button is-primary" %>
+      <% end %>
+    </div>
+  </div>

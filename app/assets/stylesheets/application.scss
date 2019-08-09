@@ -27,3 +27,19 @@
     width: 100%;
     background-color: $grey-dark;
   }
+
+  /* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input {
+  height: auto !important;
+}
+
+.forms {
+  margin: 0 auto;
+}
