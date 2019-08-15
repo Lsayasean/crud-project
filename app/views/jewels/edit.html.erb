@@ -1,0 +1,21 @@
+<% if logged_in? %> 
+  <div class="columns container forms">
+    <div class="column  field ">
+      <h2 class="title">Edit Gems Page</h2>
+      <%= form_for(@jewel) do |f| %>
+        <%= f.label :name, :class => 'label'  %>
+        <%= f.text_field :name, :class => 'input' %>
+
+        <%= f.label :desc, "Description", :class => 'label' %>
+        <%= f.text_field :desc, :class => 'input' %>
+
+        <%= f.label :tags, "Tags", :class => 'label' %>
+        <%= f.text_field :tags, :class => 'input' %>
+
+        <%= f.submit "Add Gem", class: "button is-primary" %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <p class="has-text-centered title">Please login </p>
+<% end %>
