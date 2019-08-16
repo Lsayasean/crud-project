@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
-
+    
     def show
-        @favorite = Favorite.all
+        @favorite = Favorite.where(user_id: current_user.id)
     end
 
     def create
@@ -13,6 +13,7 @@ class FavoritesController < ApplicationController
             redirect_to '/'
         end
     end
+
 
     private
 
