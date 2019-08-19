@@ -8,9 +8,11 @@ class FavoritesController < ApplicationController
         @favorite = Favorite.new(jewel_params)
 
         if @favorite.save
-            redirect_to '/my-favorites'
+            flash[:success] = "Added to favorites"
+            redirect_to '/jewels/show'
         else 
-            redirect_to '/'
+            flash[:danger] = "Gem already a favorite"
+            redirect_to '/jewels/show'
         end
     end
 
