@@ -1,11 +1,11 @@
 class FavoritesController < ApplicationController
     
     def show
-        @favorite = Favorite.where(user_id: current_user.id)
+        @favorite = Favorite.joins(:user, :jewel).select('users.name as u_name', 'jewels.name as j_name').where(user_id: current_user.id)
     end
 
     def create
-        @favorite = Favorite.new(favorite_params)
+        @favorite = Favorite.new(jewel_params)
 
         if @favorite.save
             redirect_to '/my-favorites'
@@ -15,9 +15,10 @@ class FavoritesController < ApplicationController
     end
 
 
+
     private
 
-    def favorite_params
-        params.permit(:user_id, :jewel_id)
+    def jewel_params
+        params.require(:favorite).permit(:user_id, :jewel_id)
     end
 end

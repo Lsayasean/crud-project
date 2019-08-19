@@ -3,9 +3,10 @@
     <% @favorite.each do |f| %>
         <div class="columns container">
             <div class="column">
-                <h2>UserID: <%= f.user_id %> </h2>
-                <h3>JewelID: <%= f.jewel_id%> </h3>
+                <h3>Gem Name: <%= f.j_name%> </h3>
             </div>
         </div>
-    <% end %>
+    <% end %> 
+    <%= link_to "Back", to="/jewels/show", class: "button is-primary are-large column is-full" %>
 </div>
+

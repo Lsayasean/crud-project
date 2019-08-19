@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :jewels
   resources :users
+  resources :favorites
   
 end
  

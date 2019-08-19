@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     
-    # has_many :favorites
-    # has_many :jewels, :through => :favorites
+    has_many :favorites, foreign_key: :user_id
+    has_many :jewels, through: :favorites
 
     before_save {self.email = email.downcase}
     validates :name, presence: true, length: {maximum: 50}

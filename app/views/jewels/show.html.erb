@@ -13,7 +13,13 @@
     <td><%= jewel.desc %></td>  
     <td><%= jewel.tags %></td>  
     <td> <%= link_to "Edit Gems", to="#{jewel.id}/edit", class: "button is-primary " %> </td>
-    <td><%= link_to 'Add To Favorite', favorite_path(user_id: current_user.id, jewel_id: jewel.id), method: :post, class: "button is-primary" %></td>
+    <td>
+      <%= form_with(model: Favorite.create, remote: true) do |f| %>
+      <div><%= f.hidden_field :jewel_id, value: jewel.id %></div>
+      <div><%= f.hidden_field :user_id, value: current_user.id %></div>
+      <%= f.submit "favorite", class: "button is-primary" %>
+      <% end %>
+    </td>
 <% end %>                     
 </table> 
 <div class="container has-text-centered">
