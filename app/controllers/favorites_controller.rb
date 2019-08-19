@@ -1,22 +1,26 @@
 class FavoritesController < ApplicationController
-
+    
     def show
-        @favorite = Favorite.all
+        @favorite = Favorite.joins(:user, :jewel).select('users.name as u_name', 'jewels.name as j_name').where(user_id: current_user.id)
     end
 
     def create
-        @favorite = Favorite.new(favorite_params)
+        @favorite = Favorite.new(jewel_params)
 
         if @favorite.save
-            redirect_to '/my-favorites'
+            flash[:success] = "Added to favorites"
+            redirect_to '/jewels/show'
         else 
-            redirect_to '/'
+            flash[:danger] = "Gem already a favorite"
+            redirect_to '/jewels/show'
         end
     end
 
+
+
     private
 
-    def favorite_params
-        params.permit(:user_id, :jewel_id)
+    def jewel_params
+        params.require(:favorite).permit(:user_id, :jewel_id)
     end
 end

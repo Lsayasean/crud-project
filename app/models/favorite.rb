@@ -1,6 +1,8 @@
 class Favorite < ApplicationRecord
-    validates :user_id, presence: true
-    validates :jewel_id, presence: true
+    belongs_to :jewel, class_name: "Jewel"
+    belongs_to :user, class_name: "User"
 
-    
+    validates :user_id, presence: true
+    validates :jewel_id, presence: true, uniqueness: {case_sensitive: false}
+
 end

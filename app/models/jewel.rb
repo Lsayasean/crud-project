@@ -1,5 +1,9 @@
 class Jewel < ApplicationRecord
 
+    has_many :favorites, foreign_key: :jewel_id
+    has_many :users,  through: :favorites
+   
+
     validates :name, presence: true
     validates :desc, presence: true
 
