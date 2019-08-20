@@ -1,8 +1,8 @@
 class MicropostsController < ApplicationController
-
+    # 
 
     def index
-        @jewel = Jewel.find(params[:id])
+        @jewel = Jewel.find(params[:jewel_id])
         @micropost = Micropost.new
         @post = Micropost.where(jewel_id: @jewel.id)
     end
@@ -19,7 +19,8 @@ class MicropostsController < ApplicationController
     def update
         @micropost = Micropost.find(params[:id])
         if @micropost.update_attributes(micro_params)
-            redirect_to '/jewels/show'
+            #gives us the particular jewel we are working on 
+            redirect_to jewel_microposts_path(@micropost.jewel)
         else
             redirect_to '/jewels/show'
         end
