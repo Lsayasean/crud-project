@@ -4,6 +4,7 @@
   <th>Gems</th>
   <th>Desc</th>
   <th>Tags</th>
+  <th>Comments</th>
   <th>Edit</th>
   <th>Add To Favorite</th>
   </thead>
@@ -12,6 +13,7 @@
     <td><%= jewel.name %></td>  
     <td><%= jewel.desc %></td>  
     <td><%= jewel.tags %></td>  
+    <td> <%= link_to "Comments", to="/comments/#{jewel.id}", class: "button is-primary " %> </td>
     <td> <%= link_to "Edit Gems", to="#{jewel.id}/edit", class: "button is-primary " %> </td>
     <td>
       <%= form_with(model: Favorite.create, remote: true) do |f| %>
@@ -29,10 +31,9 @@
 <div class="columns ">
   <div class="column is-one-fifth search-form">
     <%= form_tag search_path, method: :get do %>
-      <%= text_field_tag :search, nil,  class: 'input margin-top ', :placeholder => "search by tags here"%>
+      <%= text_field_tag :search, nil,  class: 'input margin-top ', :placeholder => "search by TAGS here"%>
       <%= submit_tag "Search" , :class => 'button is-primary ' %>
     <% end %>
-  </div>
 </div>
 
 <% else %>
