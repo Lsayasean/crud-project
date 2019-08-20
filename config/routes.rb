@@ -16,10 +16,17 @@ Rails.application.routes.draw do
   post '/favorite',  to: 'favorites#create'
   get '/my-favorites',  to: 'favorites#show'
 
+  get '/comments/:id', to: 'microposts#index'
+  get '/edit/:id', to: 'microposts#edit'
+  patch '/edit/:id', to: 'microposts#update'
+  post '/post', to: 'microposts#create'
+  delete '/delete/:id', to: 'microposts#destroy'
+
 
   resources :jewels
   resources :users
   resources :favorites
+  resources :microposts
   
 end
  

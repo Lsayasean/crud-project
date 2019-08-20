@@ -15,6 +15,6 @@
           <%= content_tag(:div, message, class: "notification is-#{message_type}") %>
         <% end %>
         <%= yield %>
+      <%= render 'layouts/footer' %>
   </body>
-  <%= render 'layouts/footer' %>
 </html>
