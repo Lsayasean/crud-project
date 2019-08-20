@@ -3,4 +3,7 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     include SessionsHelper
 
+    include Pundit
+    protect_from_forgery
+
 end
