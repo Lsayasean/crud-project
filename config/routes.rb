@@ -20,10 +20,16 @@ Rails.application.routes.draw do
   get '/edit/:id', to: 'microposts#edit'
   patch '/edit/:id', to: 'microposts#update'
   post '/post', to: 'microposts#create'
-  delete '/delete/:id', to: 'microposts#destroy'
+
+  # restful , do not need delete 
+
+  delete '/microposts/:id', to: 'microposts#destroy'
 
 
-  resources :jewels
+  resources :jewels do 
+    resources :microposts
+  end
+  
   resources :users
   resources :favorites
   resources :microposts

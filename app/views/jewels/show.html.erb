@@ -8,12 +8,12 @@
   <th>Edit</th>
   <th>Add To Favorite</th>
   </thead>
-<% @jewel.each do |jewel| %>      
+<% @jewels.each do |jewel| %>      
   <tr>
     <td><%= jewel.name %></td>  
     <td><%= jewel.desc %></td>  
     <td><%= jewel.tags %></td>  
-    <td> <%= link_to "Comments", to="/comments/#{jewel.id}", class: "button is-primary " %> </td>
+    <td> <%= link_to "Comments", jewel_microposts_path(jewel) , class: "button is-primary " %> </td>
     <td> <%= link_to "Edit Gems", to="#{jewel.id}/edit", class: "button is-primary " %> </td>
     <td>
       <%= form_with(model: Favorite.create, remote: true) do |f| %>

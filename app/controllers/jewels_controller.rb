@@ -1,7 +1,7 @@
 class JewelsController < ApplicationController
 
     def show
-        @jewel = Jewel.all
+        @jewels = Jewel.all
     end
 
     def search
