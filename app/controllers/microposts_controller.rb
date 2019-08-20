@@ -10,7 +10,7 @@ class MicropostsController < ApplicationController
     def create
         @micropost = Micropost.new(micro_params)
         if @micropost.save
-            redirect_back fallback_location: { action: "index", id: params[:jewel_id] }
+            redirect_to { action: "index", id: params[:jewel_id] }
         else
             redirect_to '/jewels/show'
         end
@@ -19,7 +19,7 @@ class MicropostsController < ApplicationController
     def update
         @micropost = Micropost.find(params[:id])
         if @micropost.update_attributes(micro_params)
-            redirect_to '/jewels/show'
+            redirect_to "/comments/#{params[:jewel_id]}"
         else
             redirect_to '/jewels/show'
         end
