@@ -1,6 +1,6 @@
 <div class="container">
     <h2 class="title">Edit Comments Page</h2>
-    <%= form_for(@micropost) do |f| %>
+    <%= form_for(@comments) do |f| %>
         <%= f.label :content, "Comment", :class => 'label' %>
         <%= f.text_field :content, :class => 'input' %>
         <%= f.submit "Edit Comment", class: "button is-primary" %>

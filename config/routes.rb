@@ -16,23 +16,27 @@ Rails.application.routes.draw do
   post '/favorite',  to: 'favorites#create'
   get '/my-favorites',  to: 'favorites#show'
 
-  get '/comments/:id', to: 'microposts#index'
-  get '/edit/:id', to: 'microposts#edit'
-  patch '/edit/:id', to: 'microposts#update'
-  post '/post', to: 'microposts#create'
+  # new routes for the comment model
+
+  get '/comments/:id', to: 'comments#index'
+  get '/edit/:id', to: 'comments#edit'
+  patch '/edit/:id', to: 'comments#update'
+  post '/post', to: 'comments#create'
 
   # restful , do not need delete 
 
-  delete '/microposts/:id', to: 'microposts#destroy'
+  delete '/delete/:id', to: 'comments#destroy'
+
 
 
   resources :jewels do 
-    resources :microposts
+    resources :comments
   end
   
   resources :users
   resources :favorites
   resources :microposts
+  resources :comments
   
 end
  
