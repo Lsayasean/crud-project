@@ -3,7 +3,7 @@ class Jewel < ApplicationRecord
     has_many :favorites, foreign_key: :jewel_id
     has_many :users,  through: :favorites
 
-    has_many :microposts, dependent: :destroy
+    has_many :comments, dependent: :destroy
    
 
     validates :name, presence: true

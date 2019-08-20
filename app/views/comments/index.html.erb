@@ -10,14 +10,14 @@
         <h2><%= p.content%></h2>
         <% if current_user && current_user.id == p.user_id %>
         <%= link_to "Edit Comment", to="/edit/#{p.id}", class: "button is-primary " %>
-        <%= link_to "delete Comment", to="/delete/#{p.id}", method: :delete, class: "button is-danger " %>
+        <%= link_to "delete Comment", to="/comments/#{p.id}", method: :delete, class: "button is-danger " %>
         <% end %>
 
     <% end %>
 </div>
 
 <div class="container">
-    <%= form_with(model: Micropost.create, local: true) do |f| %>
+    <%= form_with(model: Comment.create, local: true) do |f| %>
         <%= f.hidden_field :jewel_id, value: @jewel.id %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.label :content, "Comment", :class => 'label' %>
