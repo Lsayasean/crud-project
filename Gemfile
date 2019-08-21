@@ -51,6 +51,9 @@ gem 'pundit', '~> 2.1'
 # A library for setting up Ruby objects as test data
 gem 'factory_bot', '~> 5.0', '>= 5.0.2'
 
+# Capybara is an integration testing tool for rack based web applications. It simulates how a user would interact with a website
+gem 'capybara', '~> 3.28'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
