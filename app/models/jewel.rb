@@ -8,6 +8,7 @@ class Jewel < ApplicationRecord
 
     validates :name, presence: true
     validates :desc, presence: true
+    validates :tags, presence: true
 
     # searches the db jewel column tags specifically
     def self.search(params)

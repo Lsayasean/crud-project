@@ -46,10 +46,20 @@ gem 'devise', '~> 4.7'
 gem 'pundit', '~> 2.1'
 
 
+
+
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
+
+  # gives fake data
+  gem 'faker', '~> 2.1', '>= 2.1.2'
+
+  #Making tests easy on the fingers and eyes
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
 end
 
 group :development do
