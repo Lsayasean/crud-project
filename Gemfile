@@ -42,24 +42,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.7'
 
-# Testing
-gem 'rspec', '~> 3.8'
-
 # For users authorization 
 gem 'pundit', '~> 2.1'
 
-# A library for setting up Ruby objects as test data
-gem 'factory_bot', '~> 5.0', '>= 5.0.2'
-
-# Capybara is an integration testing tool for rack based web applications. It simulates how a user would interact with a website
-gem 'capybara', '~> 3.28'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-
-  # Testing
-  gem 'rspec', '~> 3.8'
+  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
 end
 
 group :development do
@@ -69,8 +59,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-    # Testing
-  gem 'rspec', '~> 3.8'
+  # Testing
+  gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
+  # factory bot rails
+  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
 end
 
 group :test do
@@ -79,8 +71,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-    # Testing
-  gem 'rspec', '~> 3.8'
+  # Testing
+  gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
+  #factory bot rails
+  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
