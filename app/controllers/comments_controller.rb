@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
         if @comments.save
             redirect_back fallback_location: { action: "index", id: params[:jewel_id] }
         else
-            redirect_to '/jewels/show'
+            redirect_to '/jewels'
         end
     end
 
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
             #gives us the particular jewel we are working on 
             redirect_to jewel_comments_path(@comments.jewel)
         else
-            redirect_to '/jewels/show'
+            redirect_to '/jewels'
         end
     end
 

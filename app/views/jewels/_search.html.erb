@@ -1,0 +1,8 @@
+<div class="columns ">
+  <div class="column is-one-fifth search-form">
+    <%= form_tag(jewels_path, method: :get) do %>
+      <%= text_field_tag :partial, params[:partial], placeholder: 'SEARCH BY TAGS', :class => 'input' %>
+      <%= submit_tag 'Search', :class => 'button is-primary', name: nil %>
+    <% end %>
+  </div> 
+</div>

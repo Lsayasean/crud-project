@@ -11,10 +11,10 @@ class Jewel < ApplicationRecord
     validates :tags, presence: true
 
     # searches the db jewel column tags specifically
-    def self.search(params)
-        jewel = Jewel.where("tags LIKE ?" , "%#{params[:search]}%")
-        if params[:search].present?
-        jewel
-        end
-    end
+    # def self.search(params)
+    #     jewel = Jewel.where("tags LIKE ?" , "%#{params[:search]}%")
+    #     if params[:search].present?
+    #     jewel
+    #     end
+    # end
 end

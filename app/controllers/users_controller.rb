@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in @user
-      redirect_to '/jewels/show'
+      redirect_to '/jewels'
     else
       redirect_to 'new'
     end

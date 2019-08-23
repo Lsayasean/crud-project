@@ -7,11 +7,17 @@
       <h2 class="subtitle">
         Learn about hub gems!
       </h2>
+      <% if current_user %>
+      <div class="has-text-centered">
+      <%= link_to "Check Gems here!", to="/jewels", class: "button is-primary" %>
+      </div>
+      <% else %>
+      <h2 class="subtitle">
+       Please sign up or login to view the gem!
+      </h2>
+      <% end %>
     </div>
   </div>
 </section>
 
 
-<div class="has-text-centered">
-    <%= link_to "Check Gems here!", to="/jewels/show", class: "button is-primary" %>
-</div>
