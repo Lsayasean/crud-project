@@ -9,10 +9,10 @@ class FavoritesController < ApplicationController
 
         if @favorite.save
             flash[:success] = "Added to favorites"
-            redirect_to '/jewels/show'
+            redirect_to '/jewels'
         else 
             flash[:danger] = "Gem already a favorite"
-            redirect_to '/jewels/show'
+            redirect_to '/jewels'
         end
     end
 

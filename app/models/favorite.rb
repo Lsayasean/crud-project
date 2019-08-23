@@ -3,6 +3,6 @@ class Favorite < ApplicationRecord
     belongs_to :user, class_name: "User"
 
     validates :user_id, presence: true
-    validates :jewel_id, presence: true, uniqueness: {case_sensitive: false}
+    validates :jewel_id, presence: true
 
 end

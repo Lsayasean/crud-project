@@ -1,40 +1,35 @@
 class JewelsController < ApplicationController
 
     def show
-        @jewels = Jewel.all
-    end
-
-    def search
-        if params[:search].blank?
-            @jewel = Jewel.all
+        if params[:partial]
+            @jewels = Jewel.where('tags LIKE ?', "%#{params[:partial]}%")
         else
-            @jewel = Jewel.search(params)
+            @jewels = Jewel.all
         end
     end
 
-    
     def new
-        @jewel = Jewel.new
+        @jewels = Jewel.new
     end
 
     def create
-        @jewel = Jewel.new(jewel_params)
+        @jewels = Jewel.new(jewel_params)
 
-        if @jewel.save
-            redirect_to '/jewels/show'
+        if @jewels.save
+            redirect_to '/jewels'
         else
             render 'new'
         end
     end
 
     def edit
-        @jewel = Jewel.find(params[:id])
+        @jewels = Jewel.find(params[:id])
     end
 
     def update
-        @jewel = Jewel.find(params[:id])
-        if @jewel.update_attributes(jewel_params)
-         redirect_to '/jewels/show'
+        @jewels = Jewel.find(params[:id])
+        if @jewels.update_attributes(jewel_params)
+         redirect_to '/jewels'
         else
           render 'edit'
         end
@@ -46,3 +41,4 @@ class JewelsController < ApplicationController
     end
 end
 
+    

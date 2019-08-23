@@ -9,7 +9,7 @@
     <% @post.each do |p| %>
         <h2><%= p.content%></h2>
         <% if current_user && current_user.id == p.user_id %>
-        <%= link_to "Edit Comment", to="/edit/#{p.id}", class: "button is-primary " %>
+        <%= link_to "Edit Comment", to="comments/#{p.id}/edit", class: "button is-primary " %>
         <%= link_to "delete Comment", to="/comments/#{p.id}", method: :delete, class: "button is-danger " %>
         <% end %>
 
@@ -23,5 +23,6 @@
         <%= f.label :content, "Comment", :class => 'label' %>
         <%= f.text_field :content, :class => 'input' %>
         <%= f.submit "Add Comment", class: "button is-primary" %>
+        <%= link_to "Back", to="/jewels", class: "button is-primary" %>
     <% end %>
 </div>

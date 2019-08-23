@@ -1,4 +1,4 @@
-<% if current_member? %> 
+<% if current_user %> 
   <div class="columns container forms">
     <div class="column  field ">
       <h2 class="title">Edit Gems Page</h2>
@@ -14,7 +14,7 @@
 
         <%= f.submit "Edit Gem", class: "button is-primary" %>
       <% end %>
-      <%= link_to "Back", to="/jewels/show", class: "button is-primary are-large column is-full" %>
+      <%= link_to "Back", to="/jewels", class: "button is-primary are-large column is-full" %>
     </div>
   </div>
 <% else %>
