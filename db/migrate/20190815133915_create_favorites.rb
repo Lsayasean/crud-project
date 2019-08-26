@@ -5,6 +5,6 @@ class CreateFavorites < ActiveRecord::Migration[5.2]
       t.integer :user_id, foreign_key: true
       t.timestamps
     end
-    add_index :favorites, [:jewel_id, :user_id], unique: true
+    add_index (:favorites, [:jewel_id, :user_id], unique: true)
   end
 end
