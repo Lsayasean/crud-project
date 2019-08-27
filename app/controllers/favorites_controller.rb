@@ -1,6 +1,7 @@
 class FavoritesController < ApplicationController
     
     def show
+        #
         @favorite = Favorite.joins(:user, :jewel).select('users.name as u_name', 'jewels.name as j_name').where(user_id: current_user.id)
     end
 
